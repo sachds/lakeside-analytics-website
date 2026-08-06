@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing — Lakeside Analytics</title>
+<meta name="description" content="Published work on Databricks and Snowflake benchmarking, GenAI cost supervision, knowledge-graph agent context, and large-scale analytics applications.">
+<link rel="canonical" href="https://lakesideanalytics.io/writing.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lakesideanalytics.io/writing.html">
+<meta property="og:title" content="Writing — Lakeside Analytics">
+<meta property="og:description" content="Published benchmarking and platform engineering work for Capital One Software, Plotly, and Databricks SME Engineering.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg class="mark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="6.4" r="3.4" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M3 13.2h14M5 16.2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Lakeside Analytics
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="services.html">Services</a>
+      <a href="writing.html" aria-current="page">Writing</a>
+      <a href="mailto:sachin@lakesideanalytics.io">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Writing</span>
+      <h1>The measurements, in public.</h1>
+      <p class="lede">
+        Benchmarking and platform engineering work published through Capital One
+        Software, Plotly, and Databricks SME Engineering. Everything here is the same
+        evidence-first method we bring to client work — the numbers are reproducible and
+        the methodology is in the article.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+
+      <div class="entry-group">
+        <h2>Capital One Software Engineering Blog</h2>
+        <ul class="entries">
+
+          <li class="entry">
+            <div class="entry-meta"><span>2026</span></div>
+            <div>
+              <h3>
+                <a href="https://www.capitalone.com/software/blog/scaling-agent-context-snowflake-knowledge-graphs/">
+                  Scaling agent context with knowledge graphs on Snowflake
+                </a>
+              </h3>
+              <p>
+                How knowledge graphs extend the working context available to AI agents
+                beyond fixed dashboards and flat retrieval, implemented on Snowflake.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta"><span>2026</span></div>
+            <div>
+              <h3>
+                <a href="https://www.capitalone.com/software/blog/databricks-benchmarks-classic-jobs-serverless-jobs-dbsql-comparison/">
+                  Jobs Classic vs. Jobs Serverless vs. DBSQL: Who wins on TPC-DS?
+                </a>
+              </h3>
+              <p>
+                A data-driven analysis running the full TPC-DS suite — 4,750+ queries —
+                across three Databricks compute planes via Apache JMeter. Serverless SQL
+                warehouses emerge as the overall winner, roughly 7&times; faster than any
+                Jobs compute at equal or lower cost, while classic Jobs Compute wins
+                within the Jobs family.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta"><span>2026</span></div>
+            <div>
+              <h3>
+                <a href="https://www.capitalone.com/software/blog/databricks-genai-cost-supervisor-agent/">
+                  Building a GenAI cost supervisor agent in Databricks
+                </a>
+              </h3>
+              <p>
+                Turning Databricks system tables into a knowledge base for an AI agent
+                that answers GenAI cost questions — and the case for Unity Catalog
+                functions over text-to-SQL to eliminate the injection surface.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta"><span>2026</span></div>
+            <div>
+              <h3>
+                <a href="https://www.capitalone.com/software/blog/snowflake-cortex-code-cli/">
+                  Cortex Code CLI: a hands-on review of Snowflake's TPC-DS 10TB
+                </a>
+              </h3>
+              <p>
+                Hands-on evaluation of Snowflake's Cortex Code CLI across five test areas
+                spanning 55 billion rows.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="entry-group">
+        <h2>Plotly on Databricks series (2023–2024)</h2>
+        <ul class="entries">
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2023</span>
+              <span class="entry-role">Lead author</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/dbsql-sme-engineering/visualizing-a-billion-points-databricks-plotly-dash-and-the-plotly-resampler-45461bc3f466">
+                  Visualizing a billion points: Databricks SQL, Plotly Dash, and the Plotly Resampler
+                </a>
+              </h3>
+              <p>
+                At-scale interactive Dash apps over large IoT time-series via the
+                Databricks SQL connector, with Plotly Resampler downsampling on a Polars
+                backend.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2023</span>
+              <span class="entry-role">Lead author</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/building-plotly-dash-apps-on-a-lakehouse-with-databricks-sql-advanced-edition-4e1015593633">
+                  Building Plotly Dash apps on a lakehouse with Databricks SQL (advanced edition)
+                </a>
+              </h3>
+              <p>
+                Connecting Dash to Databricks via the SQL connector or SQLAlchemy ORM —
+                streaming dashboards, DDL and object mapping, and advanced visuals.
+                Article #4 in the series.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2024</span>
+              <span class="entry-role">Lead author</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/amplify-your-organizations-custom-llm-strategy-using-databricks-with-plotly-part-1-6bfb8a86872b">
+                  Amplify your organization's custom LLM strategy using Databricks with Plotly (part 1)
+                </a>
+              </h3>
+              <p>
+                A full-stack Dash application that deploys Hugging Face and Databricks
+                models to GPU serving endpoints.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2023</span>
+              <span class="entry-role">Contributor</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/databricks-sdk-plotly-dash-the-easiest-way-to-get-jobs-done-70d44e1cd9c3">
+                  Databricks SDK + Plotly Dash — the easiest way to get jobs done
+                </a>
+              </h3>
+              <p>
+                Dash as a front end for the Databricks SDK and Jobs API.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2023</span>
+              <span class="entry-role">Contributor</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/molson-coors-streamlines-supply-planning-workflows-with-databricks-plotly-dash-d26de907142c">
+                  Molson Coors streamlines supply planning workflows with Databricks &amp; Plotly Dash
+                </a>
+              </h3>
+              <p>
+                A production customer data application built on the SQLAlchemy engine and
+                Dash AG Grid. Article #3 in the series.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="callout cta">
+        <span class="eyebrow">Contact</span>
+        <h2>Want this kind of measurement on your own platform?</h2>
+        <p>
+          The methodology behind these articles is the same one we bring to client
+          engagements. Email is the fastest way in.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="mailto:sachin@lakesideanalytics.io">sachin@lakesideanalytics.io</a>
+          <a class="btn btn-ghost" href="services.html">See services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>&copy; 2026 Lakeside Analytics. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="services.html">Services</a>
+      <a href="https://sachin.lakesideanalytics.io">Sachin Seth</a>
+      <a href="mailto:sachin@lakesideanalytics.io">sachin@lakesideanalytics.io</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
