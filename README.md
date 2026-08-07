@@ -48,24 +48,31 @@ Conventions worth keeping:
 
 ## Hosting
 
-GitHub Pages, custom domain `lakesideanalytics.io`.
+**Cloudflare Pages**, project `lakeside-analytics`.
 
-DNS for the domain is on **Google Domains** nameservers (`ns-cloud-d*.googledomains.com`),
-not Cloudflare. The records GitHub Pages needs:
+Deploy from this directory:
 
-| Type  | Name  | Value                                                    |
-|-------|-------|----------------------------------------------------------|
-| A     | `@`   | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
-| CNAME | `www` | `sachds.github.io.`                                       |
+```bash
+wrangler pages deploy . --project-name lakeside-analytics --branch main
+```
 
-Both were already in place before this site existed.
+Live at `lakeside-analytics.pages.dev`. Cloudflare serves extensionless URLs
+(`/services`, `/writing`) and 308-redirects the `.html` forms to them; `404.html` is
+picked up automatically as the not-found page.
 
-`sachin.lakesideanalytics.io` is a separate GitHub Pages site from the
-`sachds/lakesideanalytics-website` repo. It is unaffected by this one — different
-subdomain, different repo.
+There is no `CNAME` file — that is a GitHub Pages artifact. Custom domains are attached
+to the Pages project, not committed to the repo.
 
-### Enabling Pages on a fresh clone
+### Custom domain
 
-Settings → Pages → Source: `main` / root, then set the custom domain to
-`lakesideanalytics.io` and wait for the certificate to provision (usually minutes; up to
-an hour). Tick **Enforce HTTPS** once it is available.
+`lakesideanalytics.io` is registered at **Squarespace**; DNS currently runs on the legacy
+Google Domains nameservers (`ns-cloud-d*.googledomains.com`). Cloudflare Pages cannot
+serve an apex domain unless the zone is on Cloudflare, because that provider has no
+ALIAS/ANAME support at the apex — so the nameservers have to move.
+
+The zone also carries Google Workspace email (5 MX, SPF, and a `google._domainkey` DKIM
+split across 3 DNS chunks) plus a `sachin` CNAME for the portfolio. All of it must be
+recreated on Cloudflare *before* the nameserver switch or mail breaks.
+
+GitHub Pages was tried first and abandoned: the `pages-build-deployment` job never got a
+runner. Pages is now disabled on this repo and its domain claim released.
