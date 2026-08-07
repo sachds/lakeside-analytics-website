@@ -42,10 +42,10 @@
       <span class="eyebrow">Independent data platform consultancy</span>
       <h1>The data platform work that needs someone who has measured it.</h1>
       <p class="lede">
-        Lakeside Analytics helps engineering and analytics teams design, benchmark, and
-        build on Databricks and Snowflake — then ship the applications and agents that
-        run on top. Evidence first: architecture decisions backed by numbers we produced
-        ourselves, not vendor slides.
+        Lakeside Analytics designs, benchmarks, and builds on Databricks and Snowflake.
+        Every recommendation traces back to a number we produced and published — under
+        our own byline, with the method attached, so you can check the work before you
+        hire us.
       </p>
       <div class="btn-row">
         <a class="btn" href="mailto:sachin@lakesideanalytics.io">Start a conversation</a>
@@ -55,14 +55,23 @@
   </section>
 
   <div class="wrap">
-    <div class="strip">
-      <span class="strip-label">Work published by</span>
-      <ul class="strip-items">
-        <li>Capital One Software</li>
-        <li>Plotly</li>
-        <li>Databricks SME Engineering</li>
-        <li>Virago Analytics</li>
-      </ul>
+    <div class="stats">
+      <div class="stat">
+        <span class="figure">4,750+</span>
+        <span class="label">TPC-DS query executions benchmarked across three Databricks compute planes</span>
+      </div>
+      <div class="stat">
+        <span class="figure">55.8B</span>
+        <span class="label">rows in the largest test environment, TPC-DS at 10TB on Snowflake</span>
+      </div>
+      <div class="stat">
+        <span class="figure">Trillions</span>
+        <span class="label">of rows made explorable in real time, without pre-aggregation</span>
+      </div>
+      <div class="stat">
+        <span class="figure">13</span>
+        <span class="label">studies published, every figure dated and sourced</span>
+      </div>
     </div>
   </div>
 
@@ -162,6 +171,123 @@
           </p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-intro prose">
+        <span class="eyebrow">Selected engagements</span>
+        <h2>Systems built and measured at production scale.</h2>
+        <p>
+          Named where the work is already public — through a conference talk, a published
+          article, or a byline. Everything else stays unnamed.
+        </p>
+      </div>
+
+      <article class="engagement">
+        <div class="engagement-who">
+          <strong>Mercedes</strong>
+          Petabyte time-series visualization
+          <br>2023&ndash;2024
+        </div>
+        <div class="engagement-body">
+          <h3>Trillions of rows, explorable in real time.</h3>
+          <p>
+            A high-density visualization tool combining Rust-based downsampling with
+            Databricks SQL and Apache Arrow zero-copy memory buffers. Queries adapt to
+            the analyst&rsquo;s zoom level — aggregated views by default, with SQL pushdown
+            retrieving original high-resolution data on demand, so larger-than-memory
+            datasets stay interactive instead of being pre-aggregated into something
+            smaller and less useful.
+          </p>
+          <ul class="measures">
+            <li>
+              <span class="m-figure">Trillions</span>
+              <span class="m-label">of rows handled without pre-aggregation</span>
+            </li>
+            <li>
+              <span class="m-figure">Zero-copy</span>
+              <span class="m-label">Arrow buffers for larger-than-memory datasets</span>
+            </li>
+            <li>
+              <span class="m-figure">DAIS 2024</span>
+              <span class="m-label">presented at Data + AI Summit</span>
+            </li>
+          </ul>
+          <p class="provenance">
+            &ldquo;Petabyte Pitstops with Mercedes, Databricks SQL and Plotly Resampler&rdquo; &middot;
+            <a href="https://www.youtube.com/watch?v=g3cOFicI8O4">Data + AI Summit 2024</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="engagement">
+        <div class="engagement-who">
+          <strong>Capital One Software</strong>
+          Published benchmark program
+          <br>ongoing since Jan 2026
+        </div>
+        <div class="engagement-body">
+          <h3>Full workloads, at scale, with the method published.</h3>
+          <p>
+            An ongoing research program measuring compute economics and agent
+            architecture across Databricks and Snowflake. Standard suites run under
+            controlled conditions, with the notebooks, worksheets, and prompt lists
+            shipped alongside — including the findings that cut against the obvious
+            answer.
+          </p>
+          <ul class="measures">
+            <li>
+              <span class="m-figure">4,750+</span>
+              <span class="m-label">TPC-DS query executions across three compute planes</span>
+            </li>
+            <li>
+              <span class="m-figure">0.64 vs 38.24</span>
+              <span class="m-label">minutes, Snowflake Gen2 vs Gen1 small warehouses on TPC-DS 1TB</span>
+            </li>
+            <li>
+              <span class="m-figure">20</span>
+              <span class="m-label">Unity Catalog SQL functions registered for the GenAI cost agent</span>
+            </li>
+          </ul>
+          <p class="provenance">
+            seven studies, Jan&ndash;Jul 2026 &middot;
+            <a href="writing.html">read the research</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="engagement">
+        <div class="engagement-who">
+          <strong>Molson Coors</strong>
+          Supply planning on Databricks SQL
+          <br>2023
+        </div>
+        <div class="engagement-body">
+          <h3>Planners write to the warehouse, not to a spreadsheet.</h3>
+          <p>
+            Replaced a manual spreadsheet process for tracking product ship dates with a
+            Databricks SQL&ndash;backed application. Editable grid with SQLAlchemy ORM
+            write-back, so planners keep the workflow they trust while the numbers live
+            somewhere auditable instead of in a file being passed around.
+          </p>
+          <ul class="measures">
+            <li>
+              <span class="m-figure">60+ &rarr; &lt;10</span>
+              <span class="m-label">steps in the supply planning workflow, as published</span>
+            </li>
+            <li>
+              <span class="m-figure">Write-back</span>
+              <span class="m-label">native ORM writes to the warehouse from the app</span>
+            </li>
+          </ul>
+          <p class="provenance">
+            written up by Plotly &middot;
+            <a href="https://medium.com/plotly/molson-coors-streamlines-supply-planning-workflows-with-databricks-plotly-dash-d26de907142c">feb 2023</a>
+          </p>
+        </div>
+      </article>
     </div>
   </section>
 
