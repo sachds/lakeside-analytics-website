@@ -42,10 +42,10 @@
       <span class="eyebrow">Writing</span>
       <h1>The measurements, in public.</h1>
       <p class="lede">
-        Benchmarking and platform engineering work published through Capital One
-        Software, Plotly, and Databricks SME Engineering. Everything here is the same
-        evidence-first method we bring to client work — the numbers are reproducible and
-        the methodology is in the article.
+        Thirteen articles and a conference talk, published through Capital One Software,
+        Plotly, and Databricks SME Engineering. Every number is dated and carries a
+        venue, and the methodology is in the article — so you can check the work before
+        you hire us, including the findings that cut against the obvious answer.
       </p>
     </div>
   </section>
@@ -54,69 +54,117 @@
     <div class="wrap">
 
       <div class="entry-group">
-        <h2>Capital One Software Engineering Blog</h2>
+        <h2>Capital One Software engineering blog</h2>
         <ul class="entries">
 
           <li class="entry">
-            <div class="entry-meta"><span>2026</span></div>
+            <div class="entry-meta">
+              <span>Jul 2026</span>
+            </div>
             <div>
               <h3>
-                <a href="https://www.capitalone.com/software/blog/scaling-agent-context-snowflake-knowledge-graphs/">
+                <a href="https://capitalonesoftware.com/blog/fable5-mythos5-enterprise-data">
+                  How to use Claude Fable 5 and Mythos models with enterprise data
+                </a>
+              </h3>
+              <p>
+                Claude Fable 5 ships with a 30-day prompt and output retention window. The case for tokenizing at the source, before the API boundary, so protection survives the workload.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>Jun 2026</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://capitalonesoftware.com/blog/graph-database-evaluation">
+                  Do I need a graph database? A framework to evaluate graph DBs
+                </a>
+              </h3>
+              <p>
+                When a dedicated graph database earns its place against relational primitives — and when it does not.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>May 2026</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://capitalonesoftware.com/blog/scaling-agent-context-snowflake-knowledge-graphs">
                   Scaling agent context with knowledge graphs on Snowflake
                 </a>
               </h3>
               <p>
-                How knowledge graphs extend the working context available to AI agents
-                beyond fixed dashboards and flat retrieval, implemented on Snowflake.
+                How knowledge graphs extend the working context available to AI agents beyond fixed dashboards and flat retrieval, using Cortex features and relational primitives. No dedicated graph database required.
               </p>
             </div>
           </li>
 
           <li class="entry">
-            <div class="entry-meta"><span>2026</span></div>
+            <div class="entry-meta">
+              <span>Apr 2026</span>
+            </div>
             <div>
               <h3>
-                <a href="https://www.capitalone.com/software/blog/databricks-benchmarks-classic-jobs-serverless-jobs-dbsql-comparison/">
-                  Jobs Classic vs. Jobs Serverless vs. DBSQL: Who wins on TPC-DS?
+                <a href="https://capitalonesoftware.com/blog/snowflake-coco-cli">
+                  Snowflake CoCo CLI: hands-on review for TPC-DS 10TB
                 </a>
               </h3>
               <p>
-                A data-driven analysis running the full TPC-DS suite — 4,750+ queries —
-                across three Databricks compute planes via Apache JMeter. Serverless SQL
-                warehouses emerge as the overall winner, roughly 7&times; faster than any
-                Jobs compute at equal or lower cost, while classic Jobs Compute wins
-                within the Jobs family.
+                Five test areas, from catalog discovery through dbt model generation, run against TPC-DS at 10TB — 55.8 billion rows.
               </p>
             </div>
           </li>
 
           <li class="entry">
-            <div class="entry-meta"><span>2026</span></div>
+            <div class="entry-meta">
+              <span>Mar 2026</span>
+            </div>
             <div>
               <h3>
-                <a href="https://www.capitalone.com/software/blog/databricks-genai-cost-supervisor-agent/">
+                <a href="https://capitalonesoftware.com/blog/databricks-genai-cost-supervisor-agent">
                   Building a GenAI cost supervisor agent in Databricks
                 </a>
               </h3>
               <p>
-                Turning Databricks system tables into a knowledge base for an AI agent
-                that answers GenAI cost questions — and the case for Unity Catalog
-                functions over text-to-SQL to eliminate the injection surface.
+                Registers Unity Catalog SQL functions over Databricks system tables so an agent answers GenAI cost, governance, and attribution questions on demand — and makes the case for catalog functions over text-to-SQL to eliminate the injection surface.
               </p>
             </div>
           </li>
 
           <li class="entry">
-            <div class="entry-meta"><span>2026</span></div>
+            <div class="entry-meta">
+              <span>Feb 2026</span>
+            </div>
             <div>
               <h3>
-                <a href="https://www.capitalone.com/software/blog/snowflake-cortex-code-cli/">
-                  Cortex Code CLI: a hands-on review of Snowflake's TPC-DS 10TB
+                <a href="https://capitalonesoftware.com/blog/snowflake-warehouse-benchmark-gen1-gen2-snowpark-optimized">
+                  Snowflake Gen1 vs. Gen2 vs. Snowpark-optimized warehouses
                 </a>
               </h3>
               <p>
-                Hands-on evaluation of Snowflake's Cortex Code CLI across five test areas
-                spanning 55 billion rows.
+                TPC-DS at 1TB across warehouse generations. On small warehouses Gen2 finished in 0.64 minutes where Gen1 took 38.24, driven by memory spilling — but at large sizes, with no memory pressure, Gen1 won the majority of queries.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>Jan 2026</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://capitalonesoftware.com/blog/databricks-benchmarks-classic-jobs-serverless-jobs-dbsql-comparison">
+                  Jobs Classic vs. Jobs Serverless vs. DBSQL: who wins on TPC-DS?
+                </a>
+              </h3>
+              <p>
+                The full TPC-DS suite — 4,750+ query executions — across three Databricks compute planes via Apache JMeter. Serverless SQL warehouses won overall, faster at the tail and cheaper for the same workload, while Jobs Classic beat both Jobs Serverless variants on cost and consistency.
               </p>
             </div>
           </li>
@@ -125,12 +173,29 @@
       </div>
 
       <div class="entry-group">
-        <h2>Plotly on Databricks series (2023–2024)</h2>
+        <h2>Plotly &amp; Databricks SME Engineering (2023&ndash;2024)</h2>
         <ul class="entries">
 
           <li class="entry">
             <div class="entry-meta">
-              <span>2023</span>
+              <span>Mar 2024</span>
+              <span class="entry-role">Lead author</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/amplify-your-organizations-custom-llm-strategy-using-databricks-with-plotly-part-1-6bfb8a86872b">
+                  Amplify your organization&rsquo;s custom LLM strategy using Databricks with Plotly (part 1)
+                </a>
+              </h3>
+              <p>
+                A full-stack Dash application that deploys Hugging Face and Databricks models to GPU serving endpoints.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>Oct 2023</span>
               <span class="entry-role">Lead author</span>
             </div>
             <div>
@@ -140,9 +205,24 @@
                 </a>
               </h3>
               <p>
-                At-scale interactive Dash apps over large IoT time-series via the
-                Databricks SQL connector, with Plotly Resampler downsampling on a Polars
-                backend.
+                At-scale interactive Dash apps over large IoT time-series via the Databricks SQL connector, with Plotly Resampler downsampling on a Polars backend.
+              </p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>Oct 2023</span>
+              <span class="entry-role">Lead author</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://medium.com/plotly/build-real-time-production-data-apps-with-databricks-plotly-dash-269cb64b7575">
+                  Build real-time production data apps with Databricks and Plotly Dash
+                </a>
+              </h3>
+              <p>
+                A Databricks Structured Streaming pipeline ingesting real-time IoT sensor data, aggregated through Auto Loader and windowing into Gold-level Delta views, served to a Dash app over Databricks SQL endpoints.
               </p>
             </div>
           </li>
@@ -159,27 +239,7 @@
                 </a>
               </h3>
               <p>
-                Connecting Dash to Databricks via the SQL connector or SQLAlchemy ORM —
-                streaming dashboards, DDL and object mapping, and advanced visuals.
-                Article #4 in the series.
-              </p>
-            </div>
-          </li>
-
-          <li class="entry">
-            <div class="entry-meta">
-              <span>2024</span>
-              <span class="entry-role">Lead author</span>
-            </div>
-            <div>
-              <h3>
-                <a href="https://medium.com/plotly/amplify-your-organizations-custom-llm-strategy-using-databricks-with-plotly-part-1-6bfb8a86872b">
-                  Amplify your organization's custom LLM strategy using Databricks with Plotly (part 1)
-                </a>
-              </h3>
-              <p>
-                A full-stack Dash application that deploys Hugging Face and Databricks
-                models to GPU serving endpoints.
+                Connecting Dash to Databricks via the SQL connector or SQLAlchemy ORM — streaming dashboards, DDL and object mapping, and advanced visuals.
               </p>
             </div>
           </li>
@@ -203,7 +263,7 @@
 
           <li class="entry">
             <div class="entry-meta">
-              <span>2023</span>
+              <span>Feb 2023</span>
               <span class="entry-role">Contributor</span>
             </div>
             <div>
@@ -213,8 +273,31 @@
                 </a>
               </h3>
               <p>
-                A production customer data application built on the SQLAlchemy engine and
-                Dash AG Grid. Article #3 in the series.
+                Replacing a manual spreadsheet process for tracking product ship dates with a Databricks SQL&ndash;backed Dash application — AG Grid editing with SQLAlchemy write-back, taking the workflow from 60+ steps to fewer than 10.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="entry-group">
+        <h2>Talks</h2>
+        <ul class="entries">
+
+          <li class="entry">
+            <div class="entry-meta">
+              <span>2024</span>
+              <span class="entry-role">Speaker</span>
+            </div>
+            <div>
+              <h3>
+                <a href="https://www.youtube.com/watch?v=g3cOFicI8O4">
+                  Petabyte Pitstops with Mercedes, Databricks SQL and Plotly Resampler
+                </a>
+              </h3>
+              <p>
+                Data + AI Summit 2024. A high-density visualization tool combining Rust-based downsampling, Databricks SQL, and Apache Arrow zero-copy buffers, with queries that adapt to the analyst&rsquo;s zoom level.
               </p>
             </div>
           </li>
@@ -250,7 +333,6 @@
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="services.html">Services</a>
-      <a href="https://sachin.lakesideanalytics.io">Sachin Seth</a>
       <a href="mailto:sachin@lakesideanalytics.io">sachin@lakesideanalytics.io</a>
     </div>
   </div>
