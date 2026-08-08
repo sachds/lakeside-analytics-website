@@ -708,3 +708,128 @@ p:last-child { margin-bottom: 0; }
   color: var(--ink-faint);
   max-width: 70ch;
 }
+
+/* ==========================================================================
+   Borrowed from BCG's insights index and client-impact pages:
+   filter pills, a 2-up card grid, and a metric that leads each case.
+   ========================================================================== */
+
+.lede strong { color: var(--ink); font-weight: 640; }
+
+/* ---------- filter pills ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.pill {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 0.5rem 1.05rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.pill:hover { color: var(--ink); border-color: var(--ink-faint); }
+.pill.is-on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+.pill-n { opacity: 0.6; margin-left: 0.15rem; }
+
+/* ---------- insight card grid ---------- */
+
+.igrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+  gap: 1.25rem;
+}
+@media (min-width: 1000px) { .igrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.igrid-3 { grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
+@media (min-width: 1000px) { .igrid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.icard {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 2.5vw, 1.9rem);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.icard:hover { border-color: var(--accent); transform: translateY(-2px); }
+.icard[hidden] { display: none; }
+
+.icard-chip {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  margin-bottom: 1.15rem;
+}
+.icard-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.icard-title {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 640;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.icard-desc {
+  margin-top: 0.65rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---------- case: metric leads the card ---------- */
+
+.case-lead {
+  grid-column: 1 / -1;   /* the metric leads the whole card, not one column */
+  margin-bottom: 1.4rem;
+}
+.lead-val {
+  display: block;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 660;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.lead-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Bigger display type, closer to the scale the firm sites actually use. */
+h1 { font-size: clamp(2.4rem, 6.4vw, 4.2rem); }
+.section-intro h2 { font-size: clamp(1.75rem, 4vw, 2.6rem); }

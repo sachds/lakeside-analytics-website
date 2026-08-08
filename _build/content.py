@@ -211,3 +211,52 @@ CONTACT = dict(
     sub="No discovery deck, no junior on the call. A paragraph about what your platform is doing, or should be doing, is enough to begin — and we will say plainly if it isn&rsquo;t work we should take.",
     email="sachin@lakesideanalytics.io",
 )
+
+
+# --- Borrowed from BCG/PwC: full publication dates, one lead metric per case, and
+# --- a bolded lead-in sentence. Dates below were read off the published articles.
+FULL_DATES = {
+    "fable5-mythos5": "July 20, 2026",
+    "graph-database-evaluation": "June 9, 2026",
+    "scaling-agent-context": "May 6, 2026",
+    "snowflake-coco-cli": "April 16, 2026",
+    "genai-cost-supervisor": "March 19, 2026",
+    "snowflake-warehouse-benchmark": "February 5, 2026",
+    "databricks-benchmarks-classic": "January 8, 2026",
+    "amplify-your-organizations": "March 25, 2024",
+    "visualizing-a-billion-points": "October 31, 2023",
+    "build-real-time-production": "October 26, 2023",
+    "building-plotly-dash-apps": "2023",
+    "databricks-sdk-plotly-dash": "2023",
+    "molson-coors-streamlines": "February 7, 2023",
+    "watch?v=g3cOFicI8O4": "2024",
+}
+for _s in STUDIES:
+    _s["full"] = next((v for k, v in FULL_DATES.items() if k in _s["url"]), _s["date"])
+
+# One headline metric per case, leading the card — the BCG client-impact pattern
+# ("60% / EFFICIENCY INCREASE"). Each is the first entry of that case's measure row.
+LEADS = {
+    "Mercedes":            ("Trillions", "of rows, explorable live"),
+    "Capital One Software": ("4,750+",   "TPC-DS query executions"),
+    "Molson Coors":        ("60+ &rarr; &lt;10", "workflow steps"),
+}
+for _c in CASES:
+    _c["lead"] = LEADS[_c["client"]]
+
+# Lead-in sentence rendered bold, then the rest at normal weight — the device BCG
+# uses on its insights index ("The latest insights, ideas, and perspectives from BCG.").
+LEDES = {
+    "index": ("Lakeside Analytics designs, benchmarks, and builds on Databricks and Snowflake.",
+              " Every recommendation traces back to a number we produced and published — under our own byline, with the method attached, so you can check the work before you hire us."),
+    "writing": ("Thirteen articles and a conference talk, every number dated and sourced.",
+                " Published through Capital One Software, Plotly, and Databricks SME Engineering. The methodology is in the article, so you can check the work before you hire us — including the findings that cut against the obvious answer."),
+    "work": ("Three engagements with public write-ups, and the tools built alongside them.",
+             " Clients are named only where the work is already public through a talk title, an article title, or a byline."),
+    "services": ("Four practices. Each ends in something running.",
+                 " Engagements are scoped, time-boxed, and handed over. Whether the deliverable is a benchmark report, a migration plan, an application, or an agent, your team keeps something they can run and maintain without us."),
+    "about": ("Lakeside Analytics is the consulting practice of Sachin Seth.",
+              " A data platform architect and analytics product builder working on the systems that decide what a platform costs and how fast it runs."),
+}
+
+KINDS = sorted({s["kind"] for s in STUDIES})

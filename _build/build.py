@@ -8,7 +8,7 @@ edit either site's structure — hand-editing one build would let them drift.
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import (NAV, STUDIES, CASES, ALSO_BUILT, PRACTICES, SHAPES,
-                     STATS, METHOD, ABOUT, CONTACT)
+                     STATS, METHOD, ABOUT, CONTACT, KINDS, LEDES)
 
 LIGHT = "/Users/sachin/Developer/lakeside-analytics-website"
 DARK  = "/Users/sachin/Developer/lakeside-analytics-dark"
@@ -181,6 +181,43 @@ def footer(skin):
 """
 
 
+def lede(key):
+    a, b = LEDES[key]
+    return f'<strong>{a}</strong>{b}'
+
+
+def filter_bar(kinds):
+    """Filter pills, the BCG insights-index pattern. Progressive enhancement:
+    with JS off every card stays visible and the bar simply does nothing."""
+    pills = "\n".join(
+        f'        <button class="pill" type="button" data-kind="{k}">{k}</button>'
+        for k in kinds)
+    return f"""      <div class="filters" role="group" aria-label="Filter by type">
+        <button class="pill is-on" type="button" data-kind="all">All <span class="pill-n">{len(STUDIES)}</span></button>
+{pills}
+      </div>
+"""
+
+
+FILTER_JS = """<script>
+(function () {
+  var bar = document.querySelector('.filters');
+  if (!bar) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('[data-kind-of]'));
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('.pill');
+    if (!b) return;
+    var k = b.dataset.kind;
+    bar.querySelectorAll('.pill').forEach(function (p) { p.classList.toggle('is-on', p === b); });
+    cards.forEach(function (c) {
+      c.hidden = !(k === 'all' || c.dataset.kindOf === k);
+    });
+  });
+})();
+</script>
+"""
+
+
 def sec_head(skin, ix, eyebrow, h2, sub=None):
     subhtml = f'\n        <p class="sub">{sub}</p>' if sub else ""
     if skin == "dark":
@@ -199,6 +236,21 @@ def sec_head(skin, ix, eyebrow, h2, sub=None):
 
 
 # ---------------------------------------------------------------- components
+
+def insight_card(skin, s):
+    """Card anatomy borrowed wholesale from BCG's insights index:
+    category chip, then TYPE + full date, then headline, then dek."""
+    role = f' &middot; {s["role"]}' if s.get("role") else ""
+    cls = "icard" if skin == "dark" else "icard"
+    return f"""
+        <a class="{cls}" href="{s['url']}" data-kind-of="{s['kind']}">
+          <span class="icard-chip">{s['kind']}</span>
+          <span class="icard-meta">{s['full']} &middot; {s['venue']}{role}</span>
+          <span class="icard-title">{s['title']}</span>
+          <span class="icard-desc">{s['desc']}</span>
+        </a>
+"""
+
 
 def study_card(skin, s, i):
     role = f' &middot; {s["role"]}' if s.get("role") else ""
@@ -229,6 +281,15 @@ def study_card(skin, s, i):
 """
 
 
+def case_lead(skin, c):
+    v, l = c["lead"]
+    return f"""        <div class="case-lead">
+          <span class="lead-val">{v}</span>
+          <span class="lead-label">{l}</span>
+        </div>
+"""
+
+
 def case_block(skin, c, full=False):
     body = "\n".join(f"            <p>{p}</p>" for p in (c["body"] if full else c["body"][-1:]))
     n = len(c["measures"])
@@ -239,7 +300,7 @@ def case_block(skin, c, full=False):
           </div>""" for v, l in c["measures"])
         return f"""
       <article class="case">
-        <div class="case-head">
+""" + case_lead(skin, c) + f"""        <div class="case-head">
           <span class="case-mark">{c['client']}</span>
           <span>{c['scope']}</span>
           <span class="case-role">{c['years']}</span>
@@ -262,7 +323,7 @@ def case_block(skin, c, full=False):
             </li>""" for v, l in c["measures"])
     return f"""
       <article class="engagement">
-        <div class="engagement-who">
+""" + case_lead(skin, c) + f"""        <div class="engagement-who">
           <strong>{c['client']}</strong>
           {c['scope']}
           <br>{c['years']}
@@ -323,10 +384,7 @@ def page_index(skin):
     s += header(skin, "")
 
     hero_cls = "hero"
-    lede = ("Lakeside Analytics designs, benchmarks, and builds on Databricks and Snowflake. "
-            "Every recommendation traces back to a number we produced and published — under "
-            "our own byline, with the method attached, so you can check the work before you "
-            "hire us.")
+    lede_html = lede("index")
 
     if skin == "dark":
         s += f"""
@@ -334,7 +392,7 @@ def page_index(skin):
     <div class="container">
       <p class="eyebrow"><span class="ix">&#8212;</span> Independent data platform consultancy</p>
       <h1>Data platforms and AI systems, engineered with evidence.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
 
       <a class="feature" href="{featured['url']}">
         <span class="feature-kind">{featured['kind']}</span>
@@ -353,7 +411,7 @@ def page_index(skin):
     <div class="wrap">
       <span class="eyebrow">Independent data platform consultancy</span>
       <h1>Data platforms and AI systems, engineered with evidence.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
 
       <a class="feature" href="{featured['url']}">
         <span class="feature-kind">{featured['kind']}</span>
@@ -372,10 +430,7 @@ def page_index(skin):
   <section{' class="band"' if skin == 'light' else ''}>
 {wrap_open(skin)}
 {sec_head(skin, '01', 'Insights &amp; research', 'The measurements, in public.', 'Thirteen articles and a conference talk. Every number dated, every venue named.')}"""
-    if skin == "dark":
-        s += "".join(study_card(skin, x, i + 1) for i, x in enumerate(STUDIES[1:4]))
-    else:
-        s += '      <ul class="entries">\n' + "".join(study_card(skin, x, i) for i, x in enumerate(STUDIES[1:4])) + "      </ul>\n"
+    s += '      <div class="igrid igrid-3">\n' + "".join(insight_card(skin, x) for x in STUDIES[1:4]) + "      </div>\n"
     s += f"""      <div class="btn-row">
         <a class="btn {'btn-quiet' if skin == 'dark' else 'btn-ghost'}" href="writing.html">Explore all research &rarr;</a>
       </div>
@@ -414,45 +469,44 @@ def page_writing(skin):
              "Thirteen published articles and a conference talk on Databricks and Snowflake benchmarking, agent architecture, and large-scale analytics applications.",
              "writing.html")
     s += header(skin, "writing.html")
-    lede = ("Thirteen articles and a conference talk, published through Capital One Software, "
-            "Plotly, and Databricks SME Engineering. Every number is dated and carries a venue, "
-            "and the methodology is in the article — so you can check the work before you hire "
-            "us, including the findings that cut against the obvious answer.")
+    lede_html = lede("writing")
     if skin == "dark":
         s += f"""
   <section class="hero">
     <div class="container">
       <p class="eyebrow"><span class="ix">&#8212;</span> Insights &amp; research</p>
       <h1>The measurements, in public.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
   <section>
     <div class="container">
 """
-        s += "".join(study_card(skin, x, i + 1) for i, x in enumerate(STUDIES))
-        s += "    </div>\n  </section>\n"
+        s += filter_bar(KINDS)
+        s += '      <div class="igrid">\n'
+        s += "".join(insight_card(skin, x) for x in STUDIES)
+        s += "      </div>\n    </div>\n  </section>\n"
     else:
         s += f"""
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow">Insights &amp; research</span>
       <h1>The measurements, in public.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
   <section style="padding-top:0">
     <div class="wrap">
-      <ul class="entries">
+""" + filter_bar(KINDS) + """      <div class="igrid">
 """
-        s += "".join(study_card(skin, x, i) for i, x in enumerate(STUDIES))
-        s += "      </ul>\n    </div>\n  </section>\n"
+        s += "".join(insight_card(skin, x) for x in STUDIES)
+        s += "      </div>\n    </div>\n  </section>\n"
 
     s += contact_section(skin, "Want this kind of measurement on your own platform?",
                          "The method behind these articles is the one we bring to client engagements.")
-    s += footer(skin)
+    s += footer(skin).replace("</body>", FILTER_JS + "</body>")
     return s
 
 
@@ -461,16 +515,14 @@ def page_work(skin):
              "Case studies from Mercedes, Capital One Software, and Molson Coors — trillion-row visualization, published benchmark programs, and warehouse-backed planning applications.",
              "work.html")
     s += header(skin, "work.html")
-    lede = ("Three engagements with public write-ups, and the tools built alongside them. "
-            "Clients are named only where the work is already public through a talk title, an "
-            "article title, or a byline.")
+    lede_html = lede("work")
     if skin == "dark":
         s += f"""
   <section class="hero">
     <div class="container">
       <p class="eyebrow"><span class="ix">&#8212;</span> Work</p>
       <h1>Systems built and measured at production scale.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
@@ -483,7 +535,7 @@ def page_work(skin):
     <div class="wrap">
       <span class="eyebrow">Work</span>
       <h1>Systems built and measured at production scale.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
@@ -521,16 +573,14 @@ def page_services(skin):
              "Databricks and Snowflake platform architecture, compute benchmarking and cost optimization, custom analytics applications, and AI agents on the data platform.",
              "services.html")
     s += header(skin, "services.html")
-    lede = ("Engagements are scoped, time-boxed, and handed over. Whether the deliverable is a "
-            "benchmark report, a migration plan, an application, or an agent, your team keeps "
-            "something they can run and maintain without us.")
+    lede_html = lede("services")
     if skin == "dark":
         s += f"""
   <section class="hero">
     <div class="container">
       <p class="eyebrow"><span class="ix">&#8212;</span> Services</p>
       <h1>Four practices. Each ends in something running.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
@@ -559,7 +609,7 @@ def page_services(skin):
     <div class="wrap">
       <span class="eyebrow">Services</span>
       <h1>Four practices. Each ends in something running.</h1>
-      <p class="lede">{lede}</p>
+      <p class="lede">{lede_html}</p>
     </div>
   </section>
 
@@ -614,7 +664,7 @@ def page_about(skin):
     <div class="container">
       <p class="eyebrow"><span class="ix">&#8212;</span> About</p>
       <h1>A practice built on measurement.</h1>
-      <p class="lede">{a['lede']}</p>
+      <p class="lede">{lede("about")}</p>
     </div>
   </section>
 
@@ -655,7 +705,7 @@ def page_about(skin):
     <div class="wrap">
       <span class="eyebrow">About</span>
       <h1>A practice built on measurement.</h1>
-      <p class="lede">{a['lede']}</p>
+      <p class="lede">{lede("about")}</p>
     </div>
   </section>
 

@@ -39,182 +39,123 @@
     <div class="wrap">
       <span class="eyebrow">Insights &amp; research</span>
       <h1>The measurements, in public.</h1>
-      <p class="lede">Thirteen articles and a conference talk, published through Capital One Software, Plotly, and Databricks SME Engineering. Every number is dated and carries a venue, and the methodology is in the article — so you can check the work before you hire us, including the findings that cut against the obvious answer.</p>
+      <p class="lede"><strong>Thirteen articles and a conference talk, every number dated and sourced.</strong> Published through Capital One Software, Plotly, and Databricks SME Engineering. The methodology is in the article, so you can check the work before you hire us — including the findings that cut against the obvious answer.</p>
     </div>
   </section>
 
   <section style="padding-top:0">
     <div class="wrap">
-      <ul class="entries">
+      <div class="filters" role="group" aria-label="Filter by type">
+        <button class="pill is-on" type="button" data-kind="all">All <span class="pill-n">14</span></button>
+        <button class="pill" type="button" data-kind="Analysis">Analysis</button>
+        <button class="pill" type="button" data-kind="Benchmark">Benchmark</button>
+        <button class="pill" type="button" data-kind="Build">Build</button>
+        <button class="pill" type="button" data-kind="Case study">Case study</button>
+        <button class="pill" type="button" data-kind="Framework">Framework</button>
+        <button class="pill" type="button" data-kind="Guide">Guide</button>
+        <button class="pill" type="button" data-kind="Review">Review</button>
+        <button class="pill" type="button" data-kind="Talk">Talk</button>
+      </div>
+      <div class="igrid">
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Analysis</span>
-            <span>Jul 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/fable5-mythos5-enterprise-data">How to use Claude Fable 5 and Mythos models with enterprise data</a></h3>
-            <p>Claude Fable 5 ships with a 30-day prompt and output retention window. The case for tokenizing at the source, before the API boundary, so protection survives the workload.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/fable5-mythos5-enterprise-data" data-kind-of="Analysis">
+          <span class="icard-chip">Analysis</span>
+          <span class="icard-meta">July 20, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">How to use Claude Fable 5 and Mythos models with enterprise data</span>
+          <span class="icard-desc">Claude Fable 5 ships with a 30-day prompt and output retention window. The case for tokenizing at the source, before the API boundary, so protection survives the workload.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Framework</span>
-            <span>Jun 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/graph-database-evaluation">Do I need a graph database? A framework to evaluate graph DBs</a></h3>
-            <p>When a dedicated graph database earns its place against relational primitives — and when it does not.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/graph-database-evaluation" data-kind-of="Framework">
+          <span class="icard-chip">Framework</span>
+          <span class="icard-meta">June 9, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Do I need a graph database? A framework to evaluate graph DBs</span>
+          <span class="icard-desc">When a dedicated graph database earns its place against relational primitives — and when it does not.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Guide</span>
-            <span>May 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/scaling-agent-context-snowflake-knowledge-graphs">Scaling agent context with knowledge graphs on Snowflake</a></h3>
-            <p>How knowledge graphs extend the working context available to AI agents beyond fixed dashboards and flat retrieval, using Cortex features and relational primitives. No dedicated graph database required.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/scaling-agent-context-snowflake-knowledge-graphs" data-kind-of="Guide">
+          <span class="icard-chip">Guide</span>
+          <span class="icard-meta">May 6, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Scaling agent context with knowledge graphs on Snowflake</span>
+          <span class="icard-desc">How knowledge graphs extend the working context available to AI agents beyond fixed dashboards and flat retrieval, using Cortex features and relational primitives. No dedicated graph database required.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Review</span>
-            <span>Apr 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/snowflake-coco-cli">Snowflake CoCo CLI: hands-on review for TPC-DS 10TB</a></h3>
-            <p>Five test areas, from catalog discovery through dbt model generation, run against TPC-DS at 10TB — 55.8 billion rows.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/snowflake-coco-cli" data-kind-of="Review">
+          <span class="icard-chip">Review</span>
+          <span class="icard-meta">April 16, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Snowflake CoCo CLI: hands-on review for TPC-DS 10TB</span>
+          <span class="icard-desc">Five test areas, from catalog discovery through dbt model generation, run against TPC-DS at 10TB — 55.8 billion rows.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Build</span>
-            <span>Mar 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/databricks-genai-cost-supervisor-agent">Building a GenAI cost supervisor agent in Databricks</a></h3>
-            <p>Registers 20 Unity Catalog SQL functions over Databricks system tables so an agent answers GenAI cost, governance, and attribution questions on demand — and makes the case for catalog functions over text-to-SQL to eliminate the injection surface.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/databricks-genai-cost-supervisor-agent" data-kind-of="Build">
+          <span class="icard-chip">Build</span>
+          <span class="icard-meta">March 19, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Building a GenAI cost supervisor agent in Databricks</span>
+          <span class="icard-desc">Registers 20 Unity Catalog SQL functions over Databricks system tables so an agent answers GenAI cost, governance, and attribution questions on demand — and makes the case for catalog functions over text-to-SQL to eliminate the injection surface.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Benchmark</span>
-            <span>Feb 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/snowflake-warehouse-benchmark-gen1-gen2-snowpark-optimized">Snowflake Gen1 vs. Gen2 vs. Snowpark-optimized warehouses</a></h3>
-            <p>TPC-DS at 1TB across warehouse generations. On small warehouses Gen2 finished in 0.64 minutes where Gen1 took 38.24, driven by memory spilling — but at large sizes, with no memory pressure, Gen1 won the majority of queries.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/snowflake-warehouse-benchmark-gen1-gen2-snowpark-optimized" data-kind-of="Benchmark">
+          <span class="icard-chip">Benchmark</span>
+          <span class="icard-meta">February 5, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Snowflake Gen1 vs. Gen2 vs. Snowpark-optimized warehouses</span>
+          <span class="icard-desc">TPC-DS at 1TB across warehouse generations. On small warehouses Gen2 finished in 0.64 minutes where Gen1 took 38.24, driven by memory spilling — but at large sizes, with no memory pressure, Gen1 won the majority of queries.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Benchmark</span>
-            <span>Jan 2026</span>
-            <span class="entry-role">Capital One Software</span>
-          </div>
-          <div>
-            <h3><a href="https://capitalonesoftware.com/blog/databricks-benchmarks-classic-jobs-serverless-jobs-dbsql-comparison">Jobs Classic vs. Jobs Serverless vs. DBSQL: who wins on TPC-DS?</a></h3>
-            <p>The full TPC-DS suite — 4,750+ query executions — across three Databricks compute planes via Apache JMeter. Serverless SQL warehouses won overall, faster at the tail and cheaper for the same workload, while Jobs Classic beat both Jobs Serverless variants on cost and consistency.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://capitalonesoftware.com/blog/databricks-benchmarks-classic-jobs-serverless-jobs-dbsql-comparison" data-kind-of="Benchmark">
+          <span class="icard-chip">Benchmark</span>
+          <span class="icard-meta">January 8, 2026 &middot; Capital One Software</span>
+          <span class="icard-title">Jobs Classic vs. Jobs Serverless vs. DBSQL: who wins on TPC-DS?</span>
+          <span class="icard-desc">The full TPC-DS suite — 4,750+ query executions — across three Databricks compute planes via Apache JMeter. Serverless SQL warehouses won overall, faster at the tail and cheaper for the same workload, while Jobs Classic beat both Jobs Serverless variants on cost and consistency.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Build</span>
-            <span>Mar 2024</span>
-            <span class="entry-role">Plotly</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/plotly/amplify-your-organizations-custom-llm-strategy-using-databricks-with-plotly-part-1-6bfb8a86872b">Amplify your organization&rsquo;s custom LLM strategy using Databricks with Plotly</a></h3>
-            <p>A full-stack Dash application that deploys Hugging Face and Databricks models to GPU serving endpoints.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/plotly/amplify-your-organizations-custom-llm-strategy-using-databricks-with-plotly-part-1-6bfb8a86872b" data-kind-of="Build">
+          <span class="icard-chip">Build</span>
+          <span class="icard-meta">March 25, 2024 &middot; Plotly &middot; Lead author</span>
+          <span class="icard-title">Amplify your organization&rsquo;s custom LLM strategy using Databricks with Plotly</span>
+          <span class="icard-desc">A full-stack Dash application that deploys Hugging Face and Databricks models to GPU serving endpoints.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Build</span>
-            <span>Oct 2023</span>
-            <span class="entry-role">DBSQL SME Engineering</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/dbsql-sme-engineering/visualizing-a-billion-points-databricks-plotly-dash-and-the-plotly-resampler-45461bc3f466">Visualizing a billion points: Databricks SQL, Plotly Dash, and the Plotly Resampler</a></h3>
-            <p>At-scale interactive Dash apps over large IoT time-series via the Databricks SQL connector, with Plotly Resampler downsampling on a Polars backend.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/dbsql-sme-engineering/visualizing-a-billion-points-databricks-plotly-dash-and-the-plotly-resampler-45461bc3f466" data-kind-of="Build">
+          <span class="icard-chip">Build</span>
+          <span class="icard-meta">October 31, 2023 &middot; DBSQL SME Engineering &middot; Lead author</span>
+          <span class="icard-title">Visualizing a billion points: Databricks SQL, Plotly Dash, and the Plotly Resampler</span>
+          <span class="icard-desc">At-scale interactive Dash apps over large IoT time-series via the Databricks SQL connector, with Plotly Resampler downsampling on a Polars backend.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Build</span>
-            <span>Oct 2023</span>
-            <span class="entry-role">Plotly</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/plotly/build-real-time-production-data-apps-with-databricks-plotly-dash-269cb64b7575">Build real-time production data apps with Databricks and Plotly Dash</a></h3>
-            <p>A Databricks Structured Streaming pipeline ingesting real-time IoT sensor data, aggregated through Auto Loader and windowing into Gold-level Delta views, served to a Dash app over Databricks SQL endpoints.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/plotly/build-real-time-production-data-apps-with-databricks-plotly-dash-269cb64b7575" data-kind-of="Build">
+          <span class="icard-chip">Build</span>
+          <span class="icard-meta">October 26, 2023 &middot; Plotly &middot; Lead author</span>
+          <span class="icard-title">Build real-time production data apps with Databricks and Plotly Dash</span>
+          <span class="icard-desc">A Databricks Structured Streaming pipeline ingesting real-time IoT sensor data, aggregated through Auto Loader and windowing into Gold-level Delta views, served to a Dash app over Databricks SQL endpoints.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Guide</span>
-            <span>2023</span>
-            <span class="entry-role">Plotly</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/plotly/building-plotly-dash-apps-on-a-lakehouse-with-databricks-sql-advanced-edition-4e1015593633">Building Plotly Dash apps on a lakehouse with Databricks SQL (advanced edition)</a></h3>
-            <p>Connecting Dash to Databricks via the SQL connector or SQLAlchemy ORM — streaming dashboards, DDL and object mapping, and advanced visuals.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/plotly/building-plotly-dash-apps-on-a-lakehouse-with-databricks-sql-advanced-edition-4e1015593633" data-kind-of="Guide">
+          <span class="icard-chip">Guide</span>
+          <span class="icard-meta">2023 &middot; Plotly &middot; Lead author</span>
+          <span class="icard-title">Building Plotly Dash apps on a lakehouse with Databricks SQL (advanced edition)</span>
+          <span class="icard-desc">Connecting Dash to Databricks via the SQL connector or SQLAlchemy ORM — streaming dashboards, DDL and object mapping, and advanced visuals.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Guide</span>
-            <span>2023</span>
-            <span class="entry-role">Plotly</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/plotly/databricks-sdk-plotly-dash-the-easiest-way-to-get-jobs-done-70d44e1cd9c3">Databricks SDK + Plotly Dash — the easiest way to get jobs done</a></h3>
-            <p>Dash as a front end for the Databricks SDK and Jobs API.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/plotly/databricks-sdk-plotly-dash-the-easiest-way-to-get-jobs-done-70d44e1cd9c3" data-kind-of="Guide">
+          <span class="icard-chip">Guide</span>
+          <span class="icard-meta">2023 &middot; Plotly &middot; Contributor</span>
+          <span class="icard-title">Databricks SDK + Plotly Dash — the easiest way to get jobs done</span>
+          <span class="icard-desc">Dash as a front end for the Databricks SDK and Jobs API.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Case study</span>
-            <span>Feb 2023</span>
-            <span class="entry-role">Plotly</span>
-          </div>
-          <div>
-            <h3><a href="https://medium.com/plotly/molson-coors-streamlines-supply-planning-workflows-with-databricks-plotly-dash-d26de907142c">Molson Coors streamlines supply planning workflows with Databricks &amp; Plotly Dash</a></h3>
-            <p>Replacing a manual spreadsheet process for tracking product ship dates with a Databricks SQL&ndash;backed Dash application — AG Grid editing with SQLAlchemy write-back, taking the workflow from 60+ steps to fewer than 10.</p>
-          </div>
-        </li>
+        <a class="icard" href="https://medium.com/plotly/molson-coors-streamlines-supply-planning-workflows-with-databricks-plotly-dash-d26de907142c" data-kind-of="Case study">
+          <span class="icard-chip">Case study</span>
+          <span class="icard-meta">February 7, 2023 &middot; Plotly &middot; Contributor</span>
+          <span class="icard-title">Molson Coors streamlines supply planning workflows with Databricks &amp; Plotly Dash</span>
+          <span class="icard-desc">Replacing a manual spreadsheet process for tracking product ship dates with a Databricks SQL&ndash;backed Dash application — AG Grid editing with SQLAlchemy write-back, taking the workflow from 60+ steps to fewer than 10.</span>
+        </a>
 
-        <li class="entry">
-          <div class="entry-meta">
-            <span class="kind">Talk</span>
-            <span>2024</span>
-            <span class="entry-role">Data + AI Summit</span>
-          </div>
-          <div>
-            <h3><a href="https://www.youtube.com/watch?v=g3cOFicI8O4">Petabyte Pitstops with Mercedes, Databricks SQL and Plotly Resampler</a></h3>
-            <p>A high-density visualization tool combining Rust-based downsampling, Databricks SQL, and Apache Arrow zero-copy buffers, with queries that adapt to the analyst&rsquo;s zoom level.</p>
-          </div>
-        </li>
-      </ul>
+        <a class="icard" href="https://www.youtube.com/watch?v=g3cOFicI8O4" data-kind-of="Talk">
+          <span class="icard-chip">Talk</span>
+          <span class="icard-meta">2024 &middot; Data + AI Summit &middot; Speaker</span>
+          <span class="icard-title">Petabyte Pitstops with Mercedes, Databricks SQL and Plotly Resampler</span>
+          <span class="icard-desc">A high-density visualization tool combining Rust-based downsampling, Databricks SQL, and Apache Arrow zero-copy buffers, with queries that adapt to the analyst&rsquo;s zoom level.</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -252,5 +193,21 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var bar = document.querySelector('.filters');
+  if (!bar) return;
+  var cards = Array.prototype.slice.call(document.querySelectorAll('[data-kind-of]'));
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('.pill');
+    if (!b) return;
+    var k = b.dataset.kind;
+    bar.querySelectorAll('.pill').forEach(function (p) { p.classList.toggle('is-on', p === b); });
+    cards.forEach(function (c) {
+      c.hidden = !(k === 'all' || c.dataset.kindOf === k);
+    });
+  });
+})();
+</script>
 </body>
 </html>
