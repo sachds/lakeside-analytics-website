@@ -6,19 +6,30 @@ GitHub Pages — the same arrangement as `lakecode.ai`.
 ## Structure
 
 ```
-index.html      Home — positioning, four practices, how we work, selected work, CTA
-services.html   Services — the four practices in detail + engagement model
-writing.html    Writing — published work (Capital One Software, Plotly, Databricks SME)
-404.html        Not-found page (GitHub Pages serves this automatically)
+index.html      Home — featured study, stats, latest research, work, method
+writing.html    Insights & research — all 13 articles + the DAIS talk, typed and dated
+work.html       Client work — Mercedes, Capital One, Molson Coors + tools without write-ups
+services.html   Services — four practices + engagement model
+about.html      About — the practice, background, education
+404.html        Not-found page
 styles.css      The whole design system. One file, CSS custom properties.
-favicon.svg
-CNAME           Custom domain for GitHub Pages
-.nojekyll       Skip Jekyll processing
-robots.txt / sitemap.xml
+_build/         Page generator. See below — do NOT hand-edit the HTML.
 ```
 
-There is no framework, no `node_modules`, and no build. Edit the HTML, commit, push —
-GitHub Pages redeploys in about a minute.
+## The HTML is generated
+
+Both this build and the dark build (`../lakeside-analytics-dark`) render from one
+content model, so their copy cannot drift apart. Edit `_build/content.py`, then:
+
+```bash
+python3 _build/build.py
+```
+
+That rewrites all six pages in **both** repos. Hand-editing the HTML works until the next
+regeneration silently reverts it.
+
+`_build/content.py` holds every study, case, practice, and stat. Each figure in it traces
+to a published source; if you add one, check it against the linked article first.
 
 ## Local preview
 

@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lakesideanalytics.io/services.html">
 <meta property="og:title" content="Services — Lakeside Analytics">
-<meta property="og:description" content="Platform architecture, benchmarking and cost optimization, analytics applications, and AI agents on the data platform.">
+<meta property="og:description" content="Databricks and Snowflake platform architecture, compute benchmarking and cost optimization, custom analytics applications, and AI agents on the data platform.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,16 +20,14 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">
-      <svg class="mark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <circle cx="10" cy="6.4" r="3.4" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M3 13.2h14M5 16.2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
+      <svg class="mark" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="6.4" r="3.4" stroke="currentColor" stroke-width="1.5"/><path d="M3 13.2h14M5 16.2h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       Lakeside Analytics
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="/">Home</a>
+      <a href="writing.html">Insights</a>
+      <a href="work.html">Work</a>
       <a href="services.html" aria-current="page">Services</a>
-      <a href="writing.html">Writing</a>
+      <a href="about.html">About</a>
       <a href="mailto:sachin@lakesideanalytics.io">Contact</a>
     </nav>
   </div>
@@ -40,12 +38,8 @@
   <section class="hero">
     <div class="wrap">
       <span class="eyebrow">Services</span>
-      <h1>Four practices. Each one ends in something running.</h1>
-      <p class="lede">
-        Engagements are scoped, time-boxed, and handed over. Whether the deliverable is
-        a benchmark report, a migration plan, an application, or an agent, your team
-        keeps something they can run and maintain without us.
-      </p>
+      <h1>Four practices. Each ends in something running.</h1>
+      <p class="lede">Engagements are scoped, time-boxed, and handed over. Whether the deliverable is a benchmark report, a migration plan, an application, or an agent, your team keeps something they can run and maintain without us.</p>
     </div>
   </section>
 
@@ -56,12 +50,7 @@
         <div class="service-index">01 / Architecture</div>
         <div class="service-body">
           <h3>Databricks &amp; Snowflake platform architecture</h3>
-          <p>
-            Platform design and remediation for teams already committed to a lakehouse
-            or cloud warehouse — and for teams deciding between them. We work on the
-            structure that determines cost and speed for years: compute topology,
-            storage layout, governance model, and the migration path between them.
-          </p>
+          <p>Platform design and remediation for teams already committed to a lakehouse or cloud warehouse — and for teams deciding between them. We work on the structure that determines cost and speed for years: compute topology, storage layout, governance model, and the migration path between them.</p>
           <ul class="checklist">
             <li>Lakehouse and warehouse design reviews, with a written findings document</li>
             <li>Unity Catalog rollout: governance model, permissions, catalog structure</li>
@@ -76,14 +65,7 @@
         <div class="service-index">02 / Benchmarking</div>
         <div class="service-body">
           <h3>Compute benchmarking &amp; cost optimization</h3>
-          <p>
-            Independent measurement of what your platform actually costs and how fast it
-            actually is. We build reproducible harnesses over standard suites and over
-            your own workloads, so the numbers survive scrutiny and can be re-run after
-            the engagement ends. This is the practice the rest of the work is built on:
-            we have run the full TPC-DS suite across Databricks compute planes and
-            evaluated Snowflake tooling at 10TB and 55 billion rows.
-          </p>
+          <p>Independent measurement of what your platform actually costs and how fast it actually is. We build reproducible harnesses over standard suites and over your own workloads, so the numbers survive scrutiny and can be re-run after the engagement ends. This is the practice the rest of the work is built on.</p>
           <ul class="checklist">
             <li>TPC-DS and custom workload benchmarking with JMeter-driven harnesses</li>
             <li>Compute plane comparisons — serverless vs. classic vs. SQL warehouse</li>
@@ -98,13 +80,7 @@
         <div class="service-index">03 / Applications</div>
         <div class="service-body">
           <h3>Custom data &amp; analytics applications</h3>
-          <p>
-            Data products for the cases a BI tool cannot reach: very large time-series,
-            real-time streams, custom interaction models, or performance requirements
-            that need work below the framework. We build full-stack — warehouse
-            connection through interface — and drop into Rust and Arrow when the
-            performance ceiling is the actual constraint.
-          </p>
+          <p>Data products for the cases a BI tool cannot reach: very large time-series, real-time streams, custom interaction models, or performance requirements that need work below the framework. We build full-stack — warehouse connection through interface — and drop into Rust and Arrow when the performance ceiling is the actual constraint.</p>
           <ul class="checklist">
             <li>Interactive analytics apps over Databricks SQL and Snowflake</li>
             <li>Billion-point time-series visualization with server-side downsampling</li>
@@ -119,13 +95,7 @@
         <div class="service-index">04 / AI agents</div>
         <div class="service-body">
           <h3>AI agents &amp; GenAI on the data platform</h3>
-          <p>
-            Agents that are actually grounded in your data and actually governed. The
-            hard parts are context and safety: giving an agent more working context than
-            flat retrieval provides, and exposing your warehouse through a tool surface
-            that cannot be talked into arbitrary SQL. We also make GenAI spend legible
-            before it becomes a line item nobody can explain.
-          </p>
+          <p>Agents that are actually grounded in your data and actually governed. The hard parts are context and safety: giving an agent more working context than flat retrieval provides, and exposing your warehouse through a tool surface that cannot be talked into arbitrary SQL. We also make GenAI spend legible before it becomes a line item nobody can explain.</p>
           <ul class="checklist">
             <li>Knowledge-graph context so agents reason past fixed dashboards</li>
             <li>Governed tool surfaces — catalog functions instead of open text-to-SQL</li>
@@ -135,7 +105,6 @@
           </ul>
         </div>
       </article>
-
     </div>
   </section>
 
@@ -145,36 +114,21 @@
         <span class="eyebrow">Engagement model</span>
         <h2>Three ways to start.</h2>
       </div>
-
       <div class="grid">
         <article class="card">
-          <span class="num">Short</span>
+          <span class="num">Two to four weeks</span>
           <h3>Assessment</h3>
-          <p>
-            A focused review — architecture, spend, or a specific workload — producing a
-            written findings document with measured evidence and a prioritized set of
-            recommendations. Usually two to four weeks.
-          </p>
+          <p>A focused review — architecture, spend, or a specific workload — producing a written findings document with measured evidence and a prioritized set of recommendations.</p>
         </article>
-
         <article class="card">
-          <span class="num">Defined</span>
+          <span class="num">Fixed scope</span>
           <h3>Project</h3>
-          <p>
-            A scoped build: a benchmark harness, a migration, an application, or an
-            agent. Fixed deliverable, agreed acceptance criteria, documentation and
-            handover included.
-          </p>
+          <p>A scoped build: a benchmark harness, a migration, an application, or an agent. Agreed acceptance criteria, documentation and handover included.</p>
         </article>
-
         <article class="card">
-          <span class="num">Ongoing</span>
+          <span class="num">Month to month</span>
           <h3>Advisory</h3>
-          <p>
-            Recurring time for teams who want a second set of eyes on architecture
-            decisions, vendor claims, and performance work as they come up. Month to
-            month.
-          </p>
+          <p>Recurring time for teams who want a second set of eyes on architecture decisions, vendor claims, and performance work as they come up.</p>
         </article>
       </div>
     </div>
@@ -184,12 +138,8 @@
     <div class="wrap">
       <div class="callout cta">
         <span class="eyebrow">Contact</span>
-        <h2>Describe the problem — that's enough to start.</h2>
-        <p>
-          A paragraph about what your platform is doing, or should be doing, is plenty
-          for a first conversation. We will tell you honestly if it isn't work we should
-          take.
-        </p>
+        <h2>Describe the problem — that&rsquo;s enough to start.</h2>
+        <p>A paragraph about what your platform is doing, or should be doing, is plenty for a first conversation. We will tell you honestly if it isn&rsquo;t work we should take.</p>
         <div class="btn-row">
           <a class="btn" href="mailto:sachin@lakesideanalytics.io">sachin@lakesideanalytics.io</a>
         </div>
@@ -204,9 +154,17 @@
     <div>&copy; 2026 Lakeside Analytics. All rights reserved.</div>
     <div class="footer-links">
       <a href="/">Home</a>
-      <a href="writing.html">Writing</a>
+        <a href="writing.html">Insights</a>
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
       <a href="mailto:sachin@lakesideanalytics.io">sachin@lakesideanalytics.io</a>
     </div>
+  </div>
+  <div class="wrap colophon">
+    Every number on this site carries a venue and a date. If a figure is not in a
+    published piece, it does not appear here. Product names and marks belong to their
+    respective owners.
   </div>
 </footer>
 
