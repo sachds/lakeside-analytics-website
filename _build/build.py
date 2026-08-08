@@ -8,7 +8,7 @@ edit either site's structure — hand-editing one build would let them drift.
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import (NAV, STUDIES, CASES, ALSO_BUILT, PRACTICES, SHAPES,
-                     STATS, METHOD, ABOUT, CONTACT, KINDS, LEDES)
+                     STATS, METHOD, ABOUT, CONTACT, KINDS, LEDES, CHART)
 
 LIGHT = "/Users/sachin/Developer/lakeside-analytics-website"
 DARK  = "/Users/sachin/Developer/lakeside-analytics-dark"
@@ -374,6 +374,106 @@ def wrap_open(skin):
     return '    <div class="container">' if skin == "dark" else '    <div class="wrap">'
 
 
+
+# ---------------------------------------------------------------- chart
+
+def _bar(x0, y, w, h, r=4):
+    """Horizontal bar: 4px rounded data-end, square at the baseline.
+    Radius clamps on very short bars so the 0.64-minute mark still draws."""
+    r = min(r, max(w / 2, 0.01))
+    if w <= 0.01:
+        return ""
+    return (f'M{x0},{y} H{x0 + w - r} A{r},{r} 0 0 1 {x0 + w},{y + r} '
+            f'V{y + h - r} A{r},{r} 0 0 1 {x0 + w - r},{y + h} H{x0} Z')
+
+
+def chart_panel(p):
+    """One emphasis bar chart: highlighted series in the accent, comparison in
+    the de-emphasis gray. Both marks carry a direct label, which is also the
+    relief the contrast check requires."""
+    PLOT_X, PLOT_W, BAR_H = 92.0, 232.0, 16.0
+    out = [f'<figure class="cpanel">',
+           f'  <figcaption class="cpanel-title">{p["title"]} <span class="cpanel-unit">({p["unit"]})</span></figcaption>',
+           f'  <svg viewBox="0 0 420 104" role="img" class="cchart">']
+    out.append(f'    <line x1="{PLOT_X}" y1="14" x2="{PLOT_X}" y2="76" class="c-axis"/>')
+    for i, (label, val, shown, hi) in enumerate(p["rows"]):
+        y = 20 + i * 32
+        w = (val / p["axis_max"]) * PLOT_W
+        cls = "c-hi" if hi else "c-lo"
+        out.append(f'    <text x="{PLOT_X - 10}" y="{y + 12}" class="c-cat" text-anchor="end">{label}</text>')
+        d = _bar(PLOT_X, y, w, BAR_H)
+        if d:
+            out.append(f'    <path d="{d}" class="{cls}"/>')
+        out.append(f'    <text x="{PLOT_X + w + 8}" y="{y + 12}" class="c-val">{shown}</text>')
+    ticks = "".join(
+        f'    <text x="{PLOT_X + (t / p["axis_max"]) * PLOT_W}" y="94" class="c-tick" '
+        f'text-anchor="{"start" if t == 0 else ("end" if t == p["axis_max"] else "middle")}">{t}</text>\n'
+        for t in p["ticks"])
+    out.append(ticks.rstrip())
+    out.append('  </svg>')
+    out.append('</figure>')
+    return "\n".join(out)
+
+
+def chart_block(skin):
+    c = CHART
+    panels = "\n".join(chart_panel(p) for p in c["panels"])
+    rows = ""
+    for p in c["panels"]:
+        for label, val, shown, hi in p["rows"]:
+            rows += f'          <tr><td>{p["title"]}</td><td>{label}</td><td class="num">{shown}</td></tr>\n'
+    return f"""      <div class="chart">
+        <p class="sr-only">{c['finding']}</p>
+        <div class="cpanels">
+{panels}
+        </div>
+        <p class="cnote">{c['caption']}</p>
+        <p class="cprov">source &middot; <a href="{c['url']}">{c['source']}</a> &middot; {c['date']}</p>
+        <details class="ctable">
+          <summary>View the data as a table</summary>
+          <table>
+            <thead><tr><th>Measure</th><th>Warehouse</th><th>Value</th></tr></thead>
+            <tbody>
+{rows}            </tbody>
+          </table>
+        </details>
+      </div>
+"""
+
+
+def logo_wall(skin):
+    defs = open(os.path.join(LIGHT, "_build", "logo-sprite.svg"), encoding="utf-8").read()
+    sprite = ('<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" '
+              'style="position:absolute;width:0;height:0;overflow:hidden">' + defs + '</svg>')
+    marks = [
+        ("c1", "Capital One Software", '<svg viewBox="0 0 418 150" fill="currentColor" aria-hidden="true"><use href="#lg-c1"/></svg>', "", "Data &amp; AI engineering", "7 publications &middot; Jan&ndash;Jul 2026"),
+        ("mb", "Mercedes", '<svg viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true"><use href="#lg-mb"/></svg>', "Mercedes", "Petabyte time-series visualization", "Data + AI Summit &middot; 2024"),
+        ("pl", "Plotly", '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#lg-pl"/></svg>', "Plotly", "Joint engineering series with Databricks", "6 articles &middot; 2022&ndash;2024"),
+        ("mc", "Molson Coors", '<svg viewBox="0 0 82.89099 19.397611" fill="currentColor" aria-hidden="true"><use href="#lg-mc"/></svg>', "", "Supply planning on Databricks SQL", "written up by Plotly &middot; 2023"),
+    ]
+    items = ""
+    for key, name, svg, wordmark, sub, meta in marks:
+        wm = f'<span class="mark-name">{wordmark}</span>' if wordmark else ""
+        sr = f'<span class="sr-only">{name}</span>' if not wordmark else ""
+        items += f"""        <a class="mark mark-{key}" href="work.html">
+          <span class="mark-logo {key}">{sr}{svg}{wm}</span>
+          <span class="mark-sub">{sub}</span>
+          <span class="mark-meta">{meta}</span>
+        </a>
+"""
+    wrap = "container" if skin == "dark" else "wrap"
+    return f"""{sprite}
+
+  <div class="clientwall">
+    <div class="{wrap}">
+      <p class="venue-label">Where the work has appeared</p>
+      <div class="wall">
+{items}      </div>
+    </div>
+  </div>
+"""
+
+
 # ---------------------------------------------------------------- pages
 
 def page_index(skin):
@@ -425,11 +525,15 @@ def page_index(skin):
 
 {stats_block(skin)}"""
 
+    # client wall
+    s += logo_wall(skin)
+
     # latest research
     s += f"""
   <section{' class="band"' if skin == 'light' else ''}>
 {wrap_open(skin)}
 {sec_head(skin, '01', 'Insights &amp; research', 'The measurements, in public.', 'Thirteen articles and a conference talk. Every number dated, every venue named.')}"""
+    s += chart_block(skin)
     s += '      <div class="igrid igrid-3">\n' + "".join(insight_card(skin, x) for x in STUDIES[1:4]) + "      </div>\n"
     s += f"""      <div class="btn-row">
         <a class="btn {'btn-quiet' if skin == 'dark' else 'btn-ghost'}" href="writing.html">Explore all research &rarr;</a>

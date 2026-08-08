@@ -260,3 +260,20 @@ LEDES = {
 }
 
 KINDS = sorted({s["kind"] for s in STUDIES})
+
+
+# --- Snowflake Gen1 vs Gen2 study, small warehouses, TPC-DS 1TB cold start.
+# All four figures grepped out of the published article before use.
+CHART = dict(
+    source="Snowflake Gen1 vs. Gen2 vs. Snowpark-optimized warehouses",
+    url="https://capitalonesoftware.com/blog/snowflake-warehouse-benchmark-gen1-gen2-snowpark-optimized",
+    date="February 5, 2026",
+    caption="TPC-DS 1TB, cold start, small warehouses. Same size, nearly the same credits — but a 60&times; runtime gap driven by memory spilling. At large sizes, with no memory pressure, the result inverts and Gen1 wins the majority of queries.",
+    finding="On TPC-DS at 1TB with small warehouses, a Gen2 warehouse finished in 0.64 minutes where Gen1 took 38.24, while consuming 9.66 credits against Gen1's 10.58.",
+    panels=[
+        dict(title="Runtime", unit="minutes", axis_max=40, ticks=[0, 20, 40],
+             rows=[("Gen2 small", 0.64, "0.64", True), ("Gen1 small", 38.24, "38.24", False)]),
+        dict(title="Credits consumed", unit="credits", axis_max=12, ticks=[0, 6, 12],
+             rows=[("Gen2 small", 9.66, "9.66", True), ("Gen1 small", 10.58, "10.58", False)]),
+    ],
+)
